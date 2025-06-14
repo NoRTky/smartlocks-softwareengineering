@@ -1,6 +1,8 @@
 package ch.projektarbeit.softwareengineering.smartlocks.business;
 
 import ch.projektarbeit.softwareengineering.smartlocks.persistence.*;
+import java.util.Collection;
+
 
 /**
  * Implementierung des EinkaufswagenService mit Zugriff auf das Repository.
@@ -30,4 +32,15 @@ public class EinkaufswagenServiceImpl implements EinkaufswagenService {
             wagen.setStatus("GESPERRT");
         }
     }
+    
+    @Override
+    public void speichern(EinkaufswagenEntity wagen) {
+        repository.save(wagen);
+    }
+
+    @Override
+    public Collection<EinkaufswagenEntity> getAlle() {
+        return repository.findAll();
+    }
+
 }
